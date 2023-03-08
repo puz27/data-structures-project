@@ -27,4 +27,4 @@ class Test(unittest.TestCase):
         stack.push("datas")
         stack.push("datas_2")
         stack.pop()
-        self.assertEqual(stack.top.data, "datas")
+        self.assertEqual(stack.get_stack_data(), "datas")
