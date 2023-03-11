@@ -40,7 +40,9 @@ class Stack:
 
         :return: данные удаленного элемента
         """
-        return self.stack_data.pop()
+        result = self.top.data
+        self.top = self.top.next_node
+        return result
 
 
     def get_stack_data(self):
@@ -49,3 +51,5 @@ class Stack:
         :return: вызвращает данные в стеке
         """
         return " ".join(self.stack_data)
+
+
