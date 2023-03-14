@@ -1,7 +1,6 @@
 import unittest
 from src.stack import Node, Stack
 
-
 class Test(unittest.TestCase):
 
     def test_Node_1(self):
@@ -24,3 +23,8 @@ class Test(unittest.TestCase):
         stack.push("datas_2")
         stack.pop()
         self.assertEqual(stack.top.data, "datas")
+
+    def test_Node_5(self):
+        stack = Stack()
+        stack.push('data')
+        self.assertEqual(str(stack), str(["data"]))

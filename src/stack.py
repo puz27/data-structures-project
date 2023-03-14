@@ -44,3 +44,6 @@ class Stack:
         :return: вызвращает данные в стеке
         """
         return " ".join(self.stack_data)
+
+    def __str__(self):
+        return f"{self.stack_data}"
