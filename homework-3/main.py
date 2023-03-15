@@ -21,5 +21,4 @@ if __name__ == '__main__':
 
     # вот тут загвоздка
     # Проверяем магический метод __str__
-    #assert str(queue) == "data1\ndata2\ndata3"
-    #assert str(Queue()) == ""
+    assert str(queue) == "data1\ndata2\ndata3"

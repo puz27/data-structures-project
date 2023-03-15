@@ -44,7 +44,18 @@ class Queue:
 
     def __str__(self):
         """Магический метод для строкового представления объекта"""
-        return f""
+        show_queue = []
+        last_item = self.tail
+
+        while last_item is not None:
+            show_queue.append(last_item.data + "\n")
+            last_item = last_item.prev_node
+        show_queue.reverse()
+        return f"{''.join(show_queue).rstrip()}"
+
+
+
+
 
 
 
