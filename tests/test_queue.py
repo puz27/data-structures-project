@@ -13,7 +13,12 @@ class Test(unittest.TestCase):
 
     def test_Node_3(self):
         queue = Queue()
-        queue.enqueue('data1')
-        queue.enqueue('data2')
-        self.assertEqual(queue.head.data, ['data1'])
+        queue.enqueue('data5')
+        queue.enqueue('data6')
+        self.assertEqual(queue.tail, 'data6')
 
+    def test_Node_4(self):
+        queue = Queue()
+        queue.enqueue('data7')
+        queue.enqueue('data8')
+        self.assertEqual(queue.head, 'data7')

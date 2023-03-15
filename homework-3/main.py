@@ -3,9 +3,8 @@ from src.queue import Queue
 if __name__ == '__main__':
     queue = Queue()
 
-    print(queue)
     # Магический метод __str__ возвращает пустую строку
-    #assert str(Queue()) == ""
+    assert str(Queue()) == ""
 
     # Добавляем данных в очередь
 
@@ -20,7 +19,7 @@ if __name__ == '__main__':
     assert queue.tail.next_node is None
     #print(queue.tail.next_node.data)  # AttributeError: 'NoneType' object has no attribute 'data'
 
-
+    # вот тут загвоздка
     # Проверяем магический метод __str__
-    print(str(queue))
     #assert str(queue) == "data1\ndata2\ndata3"
+    #assert str(Queue()) == ""
