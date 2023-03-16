@@ -48,14 +48,11 @@ class Queue:
                 del self.head
                 self.head = new_head
                 self.head.prev_node = None
-                return f"{old_head} удален"
+                return old_head.data
             else:
                 self.head = None
                 self.tail = None
-                return f"{old_head} удален. Теперь очередь пустая"
-
-        else:
-            print("Очередь пуста. Удалять нечего.")
+                return old_head.data
 
     def __str__(self) -> str:
         """Магический метод для строкового представления объекта

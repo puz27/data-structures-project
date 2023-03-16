@@ -31,3 +31,15 @@ class Test(unittest.TestCase):
         queue.dequeue()
         queue.dequeue()
         self.assertEqual(str(queue), '')
+
+    def test_Queue_4(self):
+        queue = Queue()
+        queue.enqueue('data7')
+        queue.enqueue('data8')
+        self.assertEqual(queue.dequeue(), 'data7')
+
+    def test_Queue_5(self):
+        queue = Queue()
+        queue.enqueue('data7')
+        queue.dequeue()
+        self.assertEqual(queue.dequeue(), None)
