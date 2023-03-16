@@ -19,6 +19,5 @@ if __name__ == '__main__':
     assert queue.tail.next_node is None
     #print(queue.tail.next_node.data)  # AttributeError: 'NoneType' object has no attribute 'data'
 
-    # вот тут загвоздка
     # Проверяем магический метод __str__
     assert str(queue) == "data1\ndata2\ndata3"
