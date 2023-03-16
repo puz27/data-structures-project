@@ -10,6 +10,10 @@ class Node:
         self.next_node = next_node
         self.prev_node = None
 
+    def __repr__(self):
+        return f"{self.data}"
+
+
 class Queue:
     """Класс для очереди"""
 
@@ -32,14 +36,28 @@ class Queue:
             self.tail.next_node.prev_node = self.tail
             self.tail = self.tail.next_node
 
-    def dequeue(self):
+    def dequeue(self) -> str:
         """
         Метод для удаления элемента из очереди и его возвращения
         :return: данные удаленного элемента
         """
-        pass
+        if self.head and self.tail is not None:
+            old_head = self.head
+            if self.head.next_node is not None:
+                new_head = self.head.next_node
+                del self.head
+                self.head = new_head
+                self.head.prev_node = None
+                return f"{old_head} удален"
+            else:
+                self.head = None
+                self.tail = None
+                return f"{old_head} удален. Теперь очередь пустая"
 
-    def __str__(self):
+        else:
+            print("Очередь пуста. Удалять нечего.")
+
+    def __str__(self) -> str:
         """Магический метод для строкового представления объекта
         :return: Вывод строкового представления в виде данных очереди
         """
@@ -51,11 +69,3 @@ class Queue:
             last_item = last_item.prev_node
         show_queue.reverse()
         return f"{''.join(show_queue).rstrip()}"
-
-
-
-
-
-
-
-

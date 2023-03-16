@@ -11,14 +11,23 @@ class Test(unittest.TestCase):
         n1 = Node(1500, 2000)
         self.assertEqual(n1.next_node, 2000)
 
-    def test_Node_3(self):
+    def test_Queue_1(self):
         queue = Queue()
         queue.enqueue('data5')
         queue.enqueue('data6')
-        self.assertEqual(queue.tail, 'data6')
+        self.assertEqual(str(queue), 'data5\ndata6')
 
-    def test_Node_4(self):
+    def test_Queue_2(self):
         queue = Queue()
         queue.enqueue('data7')
         queue.enqueue('data8')
-        self.assertEqual(queue.head, 'data7')
+        queue.dequeue()
+        self.assertEqual(str(queue), 'data8')
+
+    def test_Queue_3(self):
+        queue = Queue()
+        queue.enqueue('data7')
+        queue.enqueue('data8')
+        queue.dequeue()
+        queue.dequeue()
+        self.assertEqual(str(queue), '')
