@@ -1,4 +1,6 @@
-class Node:
+from src.queue import Queue
+
+class Node():
     """Класс для узла односвязного списка"""
 
     def __init__(self, data: dict, next_node=None, prev_node=None):
@@ -11,12 +13,8 @@ class Node:
         self.prev_node = prev_node
 
 
-class LinkedList:
+class LinkedList(Queue):
     """Класс для односвязного списка"""
-
-    def __init__(self):
-        self.head = None
-        self.tail = None
 
     def insert_beginning(self, data: dict) -> None:
         """Принимает данные (словарь) и добавляет узел с этими данными в начало связанного списка"""
@@ -30,7 +28,13 @@ class LinkedList:
 
     def insert_at_end(self, data: dict) -> None:
         """Принимает данные (словарь) и добавляет узел с этими данными в конец связанного списка"""
-        pass
+        if self.tail is None:
+            self.head = Node(data)
+            self.tail = self.head
+        else:
+            self.tail.next_node = Node(data)
+            self.tail.next_node.prev_node = self.tail
+            self.tail = self.tail.next_node
 
     def __str__(self) -> str:
         """Вывод данных односвязного списка в строковом представлении"""
