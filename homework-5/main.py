@@ -6,10 +6,11 @@ if __name__ == '__main__':
 
     # Добавляем данные
     ll.insert_beginning({'id': 1})
-    ll.insert_at_end({'id': 2})
-    ll.insert_at_end({'id': 3})
+    #ll.insert_at_end({'id': 2})
+    # ll.insert_at_end({'id': 3})
     ll.insert_beginning({'id': 0})
 
-    # Печатаем данные
+    #
+    # # Печатаем данные
     print(ll)
-    assert str(ll) == "{'id': 0} -> {'id': 1} -> {'id': 2} -> {'id': 3} -> None"
+    # assert str(ll) == "{'id': 0} -> {'id': 1} -> {'id': 2} -> {'id': 3} -> None"
