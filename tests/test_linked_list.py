@@ -3,10 +3,30 @@ from src.linked_list import LinkedList, Node
 
 class Test(unittest.TestCase):
 
-    def test_Node_1(self):
-        n1 = Node(999, None)
-        self.assertEqual(n1.data, 999)
+    def test_linked_list_1(self):
+        """Проверка вывода элементов односвязного списка"""
+        ll = LinkedList()
+        self.assertEqual(str(ll), "None")
 
-    def test_Node_2(self):
-        n1 = Node(1500, 2000)
-        self.assertEqual(n1.next_node, 2000)
+    def test_linked_list_2(self):
+        """Проверка добавления элемента в начало односвязного списка"""
+        ll = LinkedList()
+        ll.insert_beginning({'id': 1})
+        self.assertEqual(str(ll), "{'id': 1} -> None")
+
+    def test_linked_list_3(self):
+        """Проверка добавления элемента в начало и конец односвязного списка"""
+        ll = LinkedList()
+        ll.insert_beginning({'id': 1})
+        ll.insert_at_end({'id': 10})
+        self.assertEqual(str(ll), "{'id': 1} -> {'id': 10} -> None")
+
+    def test_linked_list_4(self):
+        """Проверка добавления элементов в начало и конец односвязного списка"""
+        ll = LinkedList()
+        ll.insert_beginning({'id': 2})
+        ll.insert_at_end({'id': 9})
+        ll.insert_beginning({'id': 1})
+        ll.insert_at_end({'id': 10})
+        self.assertEqual(str(ll), "{'id': 1} -> {'id': 2} -> {'id': 9} -> {'id': 10} -> None")
+

@@ -45,5 +45,5 @@ class Stack:
         """
         return " ".join(self.stack_data)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.stack_data}"

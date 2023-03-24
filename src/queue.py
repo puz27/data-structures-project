@@ -1,7 +1,7 @@
 class Node:
     """Класс для узла очереди"""
 
-    def __init__(self, data, next_node=None, prev_node=None):
+    def __init__(self, data, next_node=None, prev_node=None) -> None:
         """
         Конструктор класса Node
         :param data: данные, которые будут храниться в узле
@@ -10,19 +10,19 @@ class Node:
         self.next_node = next_node
         self.prev_node = prev_node
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"{self.data}"
 
 
 class Queue:
     """Класс для очереди"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Конструктор класса Queue"""
         self.head = None
         self.tail = None
 
-    def enqueue(self, data):
+    def enqueue(self, data: str) -> None:
         """
         Метод для добавления элемента в очередь
         :param data: данные, которые будут добавлены в очередь

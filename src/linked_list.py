@@ -3,7 +3,7 @@ from src.queue import Queue
 class Node():
     """Класс для узла односвязного списка"""
 
-    def __init__(self, data: dict, next_node=None, prev_node=None):
+    def __init__(self, data: dict, next_node=None, prev_node=None) -> None:
         """
         Конструктор класса Node
         :param data: данные, которые будут храниться в узле
@@ -13,8 +13,13 @@ class Node():
         self.prev_node = prev_node
 
 
-class LinkedList(Queue):
+class LinkedList:
     """Класс для односвязного списка"""
+
+    def __init__(self) -> None:
+        """Конструктор класса linked list"""
+        self.head = None
+        self.tail = None
 
     def insert_beginning(self, data: dict) -> None:
         """Принимает данные (словарь) и добавляет узел с этими данными в начало связанного списка"""
@@ -48,4 +53,4 @@ class LinkedList(Queue):
             node = node.next_node
 
         ll_string += ' None'
-        return ll_string
+        return ll_string.lstrip()
