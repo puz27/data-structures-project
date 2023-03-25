@@ -16,11 +16,13 @@ class Node():
 class LinkedList:
     """Класс для односвязного списка"""
 
+
+
     def __init__(self) -> None:
         """Конструктор класса linked list"""
         self.head = None
         self.tail = None
-
+        self.lst = []
     def insert_beginning(self, data: dict) -> None:
         """Принимает данные (словарь) и добавляет узел с этими данными в начало связанного списка"""
         if self.head is None:
@@ -54,3 +56,20 @@ class LinkedList:
 
         ll_string += ' None'
         return ll_string.lstrip()
+
+    def to_list(self):
+
+        while self.head.next_node != None:
+            self.lst.append(self.head.data)
+            self.head = self.head.next_node
+        self.lst.append(self.tail.data)
+        return self.lst
+
+    def get_data_by_id(self, id_number):
+        for node in self.lst:
+            if node["id"] == id_number:
+                return node
+        else:
+            return None
+
+
