@@ -57,8 +57,8 @@ class LinkedList:
         ll_string += ' None'
         return ll_string.lstrip()
 
-    def to_list(self):
-
+    def to_list(self) -> list:
+        """Возвращает односвязный список в виде списка"""
         while self.head.next_node != None:
             self.lst.append(self.head.data)
             self.head = self.head.next_node
@@ -66,10 +66,11 @@ class LinkedList:
         return self.lst
 
     def get_data_by_id(self, id_number):
-        for node in self.lst:
-            if node["id"] == id_number:
-                return node
-        else:
-            return None
-
-
+        """Возвращает данные ноды из односвязного списка по id"""
+        lst = self.to_list()
+        for node in lst:
+            try:
+                if node["id"] == int(id_number):
+                    return node
+            except Exception:
+                print("Данные не являются словарем или в словаре нет id.")

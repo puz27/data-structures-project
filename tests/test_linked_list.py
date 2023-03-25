@@ -30,3 +30,25 @@ class Test(unittest.TestCase):
         ll.insert_at_end({'id': 10})
         self.assertEqual(str(ll), "{'id': 1} -> {'id': 2} -> {'id': 9} -> {'id': 10} -> None")
 
+    def test_linked_list_5(self):
+        """Проверка вывода данных нод односвязного списка в список"""
+        ll = LinkedList()
+        ll.insert_beginning({'id': 2})
+        ll.insert_at_end({'id': 9})
+        self.assertEqual(ll.to_list(), [{'id': 2}, {'id': 9}])
+
+    def test_linked_list_6(self):
+        """Проверка вывода исключения"""
+        with self.assertRaises(Exception) as ex:
+            ll = LinkedList()
+            ll.insert_beginning({'id': 2})
+            ll.insert_at_end({'id': 9})
+            ll.get_data_by_id(666)
+            self.assertTrue("Данные не являются словарем или в словаре нет id." in str(ex.exception))
+
+    def test_linked_list_7(self):
+        """Проверка поиска по id"""
+        ll = LinkedList()
+        ll.insert_beginning({'id': 0, 'username': 'serebro'})
+        ll.insert_at_end({'id': 1, 'username': 'lazzy508509'})
+        self.assertEqual(ll.get_data_by_id(1), {'id': 1, 'username': 'lazzy508509'})
