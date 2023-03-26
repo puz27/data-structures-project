@@ -1,6 +1,4 @@
-from src.queue import Queue
-
-class Node():
+class Node:
     """Класс для узла односвязного списка"""
 
     def __init__(self, data: dict, next_node=None, prev_node=None) -> None:
@@ -15,8 +13,6 @@ class Node():
 
 class LinkedList:
     """Класс для односвязного списка"""
-
-
 
     def __init__(self) -> None:
         """Конструктор класса linked list"""
@@ -65,7 +61,7 @@ class LinkedList:
         self.lst.append(self.tail.data)
         return self.lst
 
-    def get_data_by_id(self, id_number):
+    def get_data_by_id(self, id_number) -> Node:
         """Возвращает данные ноды из односвязного списка по id"""
         lst = self.to_list()
         for node in lst:
