@@ -21,23 +21,23 @@ class LinkedList:
         self.lst = []
     def insert_beginning(self, data: dict) -> None:
         """Принимает данные (словарь) и добавляет узел с этими данными в начало связанного списка"""
+        new_node = Node(data)
         if self.head is None:
-            self.tail = Node(data)
-            self.head = self.tail
+            self.head = new_node
+            self.tail = new_node
         else:
-            self.head.prev_node = Node(data)
-            self.head.prev_node.next_node = self.head
-            self.head = self.head.prev_node
+            new_node.next_node = self.head
+            self.head = new_node
 
     def insert_at_end(self, data: dict) -> None:
         """Принимает данные (словарь) и добавляет узел с этими данными в конец связанного списка"""
-        if self.tail is None:
-            self.head = Node(data)
-            self.tail = self.head
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
         else:
-            self.tail.next_node = Node(data)
-            self.tail.next_node.prev_node = self.tail
-            self.tail = self.tail.next_node
+            self.tail.next_node = new_node
+            self.tail = new_node
 
     def __str__(self) -> str:
         """Вывод данных односвязного списка в строковом представлении"""
