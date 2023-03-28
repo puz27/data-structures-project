@@ -50,3 +50,4 @@ class Test(unittest.TestCase):
         queue.enqueue('data7')
         queue.dequeue()
         self.assertEqual(queue.dequeue(), None)
+
