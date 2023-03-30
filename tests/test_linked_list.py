@@ -62,4 +62,4 @@ class Test(unittest.TestCase):
             ll.insert_beginning({'id': 1})
             ll.insert_beginning({'id': 2})
             ll.get_data_by_id(666)
-            self.assertEqual(out.getvalue(), "Данные не являются словарем или в словаре нет id.")
+        self.assertEqual(out.getvalue(), "Данные не являются словарем или в словаре нет id.")
