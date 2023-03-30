@@ -66,5 +66,5 @@ class LinkedList:
             try:
                 if node["id"] == int(id_number):
                     return node
-            except Exception:
+            except TypeError:
                 print("Данные не являются словарем или в словаре нет id.")
