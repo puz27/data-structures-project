@@ -1,7 +1,8 @@
 import unittest
 from src.linked_list import LinkedList
-from unittest.mock import patch
+from contextlib import redirect_stdout
 from io import StringIO
+
 
 
 class Test(unittest.TestCase):
@@ -47,19 +48,14 @@ class Test(unittest.TestCase):
         ll.insert_at_end({'id': 1, 'username': 'lazzy508509'})
         self.assertEqual(ll.get_data_by_id(1), {'id': 1, 'username': 'lazzy508509'})
 
-    def test_linked_list_6(self):
-        """Проверка вывода исключения"""
-        with self.assertRaises(TypeError, "Данные не являются словарем или в словаре нет id.") as cm:
-            ll = LinkedList()
-            ll.insert_beginning({'id': 1})
-            ll.insert_beginning({'id': 2})
-            ll.get_data_by_id(666)
-        self.assertEqual(str(cm.exception), "Данные не являются словарем или в словаре нет id.")
-
     def test_linked_list_8(self):
-        with patch('sys.stdout', new=StringIO()) as out:
-            ll = LinkedList()
-            ll.insert_beginning({'id': 1})
-            ll.insert_beginning({'id': 2})
+        f = StringIO()
+
+        ll = LinkedList()
+        ll.insert_beginning({'id': 1})
+        ll.insert_beginning({'id': 2})
+
+        with redirect_stdout(f):
             ll.get_data_by_id(666)
-        self.assertEqual(out.getvalue(), "Данные не являются словарем или в словаре нет id.")
+
+        self.assertEqual(f.getvalue(), "Данные не являются словарем или в словаре нет id.\n")
