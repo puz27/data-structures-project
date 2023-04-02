@@ -1,7 +1,8 @@
 import unittest
 from src.linked_list import LinkedList
-from contextlib import redirect_stdout
+import unittest.mock
 from io import StringIO
+import sys
 
 
 
@@ -49,13 +50,19 @@ class Test(unittest.TestCase):
         self.assertEqual(ll.get_data_by_id(1), {'id': 1, 'username': 'lazzy508509'})
 
     def test_linked_list_8(self):
-        f = StringIO()
-
         ll = LinkedList()
         ll.insert_beginning({'id': 1})
         ll.insert_beginning({'id': 2})
 
-        with redirect_stdout(f):
-            ll.get_data_by_id(666)
+        # Проверка поиска существующей ноды
+        node = ll.get_data_by_id(2)
+        self.assertEqual(node, {"id": 2})
 
-        self.assertEqual(f.getvalue(), "Данные не являются словарем или в словаре нет id.\n")
+        # Проверка обработки исключения TypeError
+        node = ll.get_data_by_id(666)
+        self.assertIsNone(node)
+
+
+
+
+
